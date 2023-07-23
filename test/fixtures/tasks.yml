@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  project: one
+  description: MyText
+  startTime: 2023-07-23 22:34:10
+  endTime: 2023-07-23 22:34:10
+  status: 1
+
+two:
+  name: MyString
+  project: two
+  description: MyText
+  startTime: 2023-07-23 22:34:10
+  endTime: 2023-07-23 22:34:10
+  status: 1

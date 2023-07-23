@@ -1,0 +1,28 @@
+<div class ="mb-3" style="text-align:center;">
+<h3>SIGN IN</h3>
+</div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field mb-3" style ="text-transform: uppercase;text-align:center;">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field mb-3" style ="text-transform: uppercase;text-align:center;">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field mb-3" style ="text-transform: uppercase;text-align:center;">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions mb-3" style ="text-transform: uppercase;text-align:center;">
+    <%= f.submit "SIGN IN"%>
+  </div>
+<% end %>
+<div class="field mb-3" style ="text-transform: uppercase;text-align:center;">
+  <%= render "devise/shared/links" %>
+</div>

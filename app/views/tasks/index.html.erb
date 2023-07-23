@@ -1,0 +1,47 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tasks Table</h1>
+<div class="d-flex justify-content-center">
+  <span id="counter" style="font-size:30px">00:00</span>
+</div>
+<div id="tasks">
+  <table class="table table-striped" style="background-color: lightblue;">
+  <thead>
+    <div style="background-color: green;">
+    <tr>
+      <th>Name</th>
+      <th>Project ID</th>
+      <th>Description</th>
+      <th>Total time(s)</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </div>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.project_id %></td>
+        <td><%= task.description %></td>
+        <td><%= task.seconds%></td>
+        <td><%= task.status %></td>
+        <td class="d-flex">
+          <%= link_to "Task Details", task%>
+          <% if task.status == 1%>
+            <%= button_to 'Pause', task_play_path(task), class: 'mr-3 play-button btn btn-outline-primary', data: { url: task_play_path(task) } , method: :post, remote: true %>
+          <%else%>
+            <%= button_to 'Play', task_play_path(task), class: 'ml-3 play-button btn btn-outline-primary mx-2', data: { url: task_play_path(task) } , method: :post, remote: true %>
+          <%end%>
+
+          <%= button_to 'Stop Timer', task_stop_path(task), class: 'ml-3 stop-button btn btn-outline-secondary', data: { url: task_stop_path(task) } , method: :post, remote: true, disabled: true %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="d-flex justify-content-center" style="color:blue;">
+<%= link_to "CREATE NEW TASK", new_task_path, class:"nav-link"  %>
+</div>
